@@ -7,11 +7,14 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class order {
+public class Order {
+    @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
    @ManyToOne
  private User customer;
 @ManyToOne
     private Resturant resturant;
-    private menu menu;
-    private menu price;
+    private Menu menu;
+    private Double  price;
 }

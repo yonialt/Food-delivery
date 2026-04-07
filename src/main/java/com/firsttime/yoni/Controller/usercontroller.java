@@ -1,31 +1,30 @@
 package com.firsttime.yoni.Controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.firsttime.yoni.Service.Userservice;
 import com.firsttime.yoni.model.User;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
+@RequestMapping("/users")
 public class usercontroller {
 
-    // This maps the function to http://localhost:8080/yoni
-   @RestController
-@RequestMapping("/users")
-public class UserController {
+    private final Userservice Service;
 
-    private final UserService userService;
-
-    public UserController(UserService userService){
-        this.userService = userService;
+    public usercontroller(Userservice Service){
+        this.Service= Service;
     }
 
     @PostMapping("/register")
     public User register(@RequestBody User user){
-        return userService.registerUser(user); // Service handles the logic
+        return Service.registerUser(user); 
     }
-}
+    @GetMapping("/all")
+    public List<User> getAllUsers(){
+        return Service.getAllUsers();
+    }   
 }

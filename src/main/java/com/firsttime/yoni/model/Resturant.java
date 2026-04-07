@@ -1,4 +1,4 @@
-package com.firsttime.yoni.model;
+/*package com.firsttime.yoni.model;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
@@ -20,3 +20,4 @@ public class Resturant {
     private String address;
     
 }
+*/

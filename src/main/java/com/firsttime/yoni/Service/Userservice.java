@@ -1,23 +1,31 @@
 package com.firsttime.yoni.Service;
 import com.firsttime.yoni.Repositories.Userrepositores;
 import com.firsttime.yoni.model.User;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
 public class Userservice {
 
-    private final Userrepositores userRepository;
+    private final Userrepositores Repository;
 
-    public Userservice(Userrepositores userRepository){
-        this.userRepository = userRepository;
+    public Userservice(Userrepositores Repository){
+        this.Repository = Repository;
     }
 
     public User registerUser(User user){
-        // logic example: check if email already exists
-        if(userRepository.findAll().stream().anyMatch(u -> u.getName().equals(user.getName()))){
+        if(Repository.findAll().stream().anyMatch(u -> u.getName().equals(user.getName()))){
             throw new RuntimeException("Name already exists");
         }
-        // save to DB
-        return userRepository.save(user);  // this calls the repository method
+        return Repository.save(user);  // this calls the repository method
+    }
+   public List <User> getAllUsers(){
+        return Repository.findAll();
+    }
+    public User getUserById(Long id){
+        return Repository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+    public void deleteUser(Long id){
+        Repository.deleteById(id);
     }
 }
