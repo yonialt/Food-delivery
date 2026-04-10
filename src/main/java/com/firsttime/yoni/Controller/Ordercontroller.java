@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.firsttime.yoni.Service.Orderservice;
 import com.firsttime.yoni.model.Order;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 
 
@@ -31,12 +31,10 @@ public List<Order> getAllOrder(@RequestParam String param) {
     return service.getAllOrders();
 }
 @GetMapping("/{id}")
-public Order getOrderById(@PathVariable Long id) {
-    return service.getOrderById(id);
-@DeleteMapping("/{id}")
-public ResponseEntity<String> delete(@PathVariable Long id) {
-    service.deleteOrder(id);
-    return ResponseEntity.ok("Order deleted successfully");
-
-
+public Optional<Order> getOrderById(@PathVariable Long id) {
+    return service.getOrderByID(id);
 }
+@DeleteMapping("/{id}")
+public void delete(@PathVariable Long id) {
+    service.deleteOrder(id);
+     }}

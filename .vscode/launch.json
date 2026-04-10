@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-YoniApplication<yoni>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.firsttime.yoni.YoniApplication",
+            "projectName": "yoni",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

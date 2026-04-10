@@ -1,8 +1,8 @@
-/*package com.firsttime.yoni.model;
+package com.firsttime.yoni.model;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
-@Table(name = "resturant")
+@Table(name = "resturants")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,4 +20,3 @@ public class Resturant {
     private String address;
     
 }
-*/

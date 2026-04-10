@@ -32,8 +32,8 @@ public class Resturantcontroller {
         return service.getResturantById(id);
     }
     @DeleteMapping("/{id}")
-    public  Resturant delete(@PathVariable Long id) {
+    public  void delete(@PathVariable Long id) {
         service.deleteResturant(id);
-        return ResponseEntity.ok("Resturant deleted successfully");
-    }
+        
+         }
 }

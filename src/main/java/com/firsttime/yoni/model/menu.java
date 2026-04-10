@@ -1,4 +1,4 @@
-/*package com.firsttime.yoni.model;
+package com.firsttime.yoni.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -23,4 +23,4 @@ public class Menu {
      @ManyToOne
     @JoinColumn(name = "menu_id") 
     private Menu menu; 
-}*/
+}
